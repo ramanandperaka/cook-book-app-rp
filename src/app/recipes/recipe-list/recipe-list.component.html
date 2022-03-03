@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+      <span id="loading"></span>
+    </div>
+  </div>
+
+  <div class="alert alert-success alert-dismissible hidden" id="recipeAdded" role="alert">
+    Recipe<strong> added </strong>successfully!!!.
+    <button type="button" (click)="dismissAlert(1)" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+ 
+  <div class="alert alert-success alert-dismissible hidden" id="recipeUpdated" role="alert">
+    Recipe<strong> updated </strong>successfully!!!.
+    <button type="button" (click)="dismissAlert(2)" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="alert alert-danger alert-dismissible hidden" id="recipeDeleted" role="alert">
+    Recipe<strong> deleted </strong>successfully!!!.
+    <button type="button" (click)="dismissAlert(3)" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  
+<div class="row">
+    <div class="col-xs-12">
+        <app-recipe-item 
+            *ngFor="let item of recipes; let i = index"
+            [recipe]="item"
+            [index]="item.id"></app-recipe-item>
+    </div>
+</div>
